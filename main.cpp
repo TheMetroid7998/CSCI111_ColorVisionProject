@@ -19,10 +19,10 @@ int main() {
         cout <<"Enter RGB values (0-255) with a single space in between for two unique colors: \n";
         cout << "Color 1: ";
         cin >> r1 >> g1 >> b1;
-        cout << endl;
+        //cout << endl;
         cout << "Color 2: ";
         cin >> r2 >> g2 >> b2;
-        cout << endl;
+        //cout << endl;
 
         if (r1 >= 0 && r1 <= 255 && g1 >= 0 && g1 <= 255 && b1 >= 0 && b1 <= 255) {
             if (r2 >= 0 && r2 <= 255 && g2 >= 0 && g2 <= 255 && b2 >= 0 && b2 <= 255) {
