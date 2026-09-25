@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# CLion Jetbrains IDE files
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/editor.xml
+.idea/dictionaries
+.idea/vcs.xml
