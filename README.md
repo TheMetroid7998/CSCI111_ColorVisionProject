@@ -11,7 +11,7 @@ This program compares two RGB colors to determine a basic measurement of contras
 
 Jaz Salazar
 
-## Example Ouput:
+## Example Output:
 ```
 This program will compare values for two colors to estimate if they have sufficient contrast to be differentiated.
 Enter RGB values (0-255) with a single space in between for two unique colors:

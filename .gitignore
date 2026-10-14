@@ -33,8 +33,17 @@
 
 # CLion Jetbrains IDE files
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+.idea/
+
+# Default ignored files
+.idea/shelf/
 .idea/workspace.xml
-.idea/tasks.xml
-.idea/editor.xml
-.idea/dictionaries
-.idea/vcs.xml
+# Editor-based HTTP Client requests
+.idea/httpRequests/
+# Ignored default folder with query files
+.idea/queries/
+# Datasource local storage ignored files
+.idea/dataSources/
+.idea/dataSources.local.xml
+.idea/.gitignore
+.idea/.vcs.xml
