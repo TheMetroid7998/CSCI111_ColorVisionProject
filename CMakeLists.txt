@@ -9,5 +9,4 @@ add_executable(CSCI111_ColorVisionProject
         main.cpp
         test_zone.cpp
         test_zone.h
-        hextodec.cpp
-        hextodec.h)
+        )

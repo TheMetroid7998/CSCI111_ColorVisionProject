@@ -1,27 +1,25 @@
 # Color Contrast Grader
 
-## Description
+### Developed for CSCI-111 by Jaz Salazar.
 
-**version 1.0**
+## Description
+___
+
+### **Version 1.3**
 
 This program compares two RGB colors to determine a basic measurement of contrast and resulting visibility.
 
+### New in v1.3:
+ - Support for HEX input!
+ - Refactored input validation for more advanced RGB and HEX validation.
+ - More robust error output.
+ - MISC fixes.
 
-## Developer
-
-Jaz Salazar
+### To be added in v2.x:
+ - _TBD_
 
 ## Example Output:
+___
 ```
-This program will compare values for two colors to estimate if they have sufficient contrast to be differentiated.
-Enter RGB values (0-255) with a single space in between for two unique colors:
-Color 1: 100 74 212
-Color 2: 81 0 250
-Both colors validated successfully.
-[Debug] You have selected the colors (100 74 212) and (81 0 250).
-[Debug] r_score: 19 , g_score: 74 , b_score: 38 ; rgb_score: 43 .
-[Debug] vis_score = 10
-These colors don't seem to be very distinct from each other. You should pick some better colors.
-[Debug] Program completed all planned operations successfully and will now terminate.
-Process finished with exit code 0
+ \\ To be added before v2.0 release; requires scope freeze.
 ```
