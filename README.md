@@ -3,7 +3,6 @@
 ### Developed for CSCI-111 by Jaz Salazar.
 
 ## Description
-___
 
 ### **Version 1.3**
 
@@ -19,7 +18,6 @@ This program compares two RGB colors to determine a basic measurement of contras
  - _TBD_
 
 ## Example Output:
-___
 ```
  \\ To be added before v2.0 release; requires scope freeze.
 ```
