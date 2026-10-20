@@ -205,12 +205,12 @@ string hex_to_dec(const string color_input, string& converted_output) {
         rgb_hex[c/2] += color_input[c+1];
     }
 
-    for (string a : rgb_hex) {
+    for (int i = 0; i <= 2; i++){
         string hex_val;
-        hex_val = rgb_hex[stoi(a)]; // writes the hex pair at the iteration index to hex_val
+        hex_val = rgb_hex[i]; // writes the hex pair at the iteration index to hex_val
 
         int dec_val = 0;
-        for (int i = 1, base = 1; i >= 0; i--, base += 15) {
+        for (int j = 1, base = 1; j >= 0; j--, base += 15) {
             int digit = 0;
             // changes the base for second char position, this SHOULD be reset with every call for rgb_hex[a]
             // if not, we have to implement it differently
@@ -219,10 +219,10 @@ string hex_to_dec(const string color_input, string& converted_output) {
             // How does C++ understand the numeric equivalent of the alphabetical characters?
 
             // HEX input was already converted to uppercase alphanumeric in 'preflight' btw
-            if (hex_val[i] >= '0' && hex_val[i] <= '9') {
-                digit = hex_val[i] - '0';
-            } else if (hex_val[i] >= 'A' && hex_val[i] <= 'F') {
-                digit = hex_val[i] - 'A' + 10;
+            if (hex_val[j] >= '0' && hex_val[j] <= '9') {
+                digit = hex_val[j] - '0';
+            } else if (hex_val[j] >= 'A' && hex_val[j] <= 'F') {
+                digit = hex_val[j] - 'A' + 10;
             }
             dec_val += digit * base;
         }
@@ -231,7 +231,7 @@ string hex_to_dec(const string color_input, string& converted_output) {
 
         converted_output.append(dec_str);
         // for every loop except the final one, add a space to separate the converted triads
-        if (a != "2") {
+        if (i != 2) {
             converted_output.append(" ");
         }
     }
@@ -250,7 +250,8 @@ bool rgb_validator(const string color_input, int& red, int& green, int& blue) {
      * anything extra is handled below
      */
     // Require 3 valid integers
-    // NOTE: This does not handle integer representations such as '+20'. This may have been fixed by the changes to the preflight function.
+    // NOTE: This does not handle integer representations such as '+20'.
+    // This should have been fixed by the changes to the preflight function.
     if (!(rgb >> r >> g >> b)) {
         return false;
     }
