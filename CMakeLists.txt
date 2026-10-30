@@ -7,6 +7,4 @@ include_directories(.)
 
 add_executable(CSCI111_ColorVisionProject
         main.cpp
-        test_zone.cpp
-        test_zone.h
         )

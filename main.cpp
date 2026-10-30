@@ -1,6 +1,8 @@
 // Author: Jaz Salazar
+// See dev branch for additional documentation.
 #include <iostream>
 #include <sstream>
+#include <cctype>
 
 using namespace std;
 
@@ -8,7 +10,7 @@ bool rgb_validator(string color_input, int& red, int& green, int& blue);
 
 bool input_preflight(string& color_input, int& format_base);
 
-string hex_to_dec(string color_input, string converted_output);
+string hex_to_dec(string color_input);
 
 int score_calculator(int rgb_colors[2][3]);
 
@@ -51,7 +53,7 @@ int main() {
             }
 
             if (format_base == 16) {
-                string hex_converted = hex_to_dec(color_input, "");
+                string hex_converted = hex_to_dec(color_input);
                 valid_color_format = rgb_validator(
                     hex_converted,
                 rgb_colors[i][0],
@@ -99,6 +101,7 @@ int main() {
         cout << "These colors don't seem to be very distinct from each other. You should pick some better colors.\n";
     }
 
+    cout << "Program ran successfully!" << endl;
     return 0;
 }
 
@@ -204,7 +207,9 @@ bool input_preflight(string& color_input, int& format_base) {
 }
 
 // SOURCE DISCLAIMER: This code was adapted from https://www.geeksforgeeks.org/cpp/convert-hexadecimal-to-decimal-in-cpp/
-string hex_to_dec(const string color_input, string& converted_output) {
+string hex_to_dec(const string color_input) {
+
+    string converted_output;
 
     string rgb_hex[3];
     for (int c = 0; c < 6; c+=2) {
@@ -282,7 +287,7 @@ bool rgb_validator(const string color_input, int& red, int& green, int& blue) {
     return true;
 }
 
-int score_calculator(const int rgb_colors[2][3]) {
+int score_calculator(int rgb_colors[2][3]) {
 
     int r_score = (max(rgb_colors[0][0], rgb_colors[1][0]) - min(rgb_colors[0][0], rgb_colors[1][0]));
     int g_score = (max(rgb_colors[0][1], rgb_colors[1][1]) - min(rgb_colors[0][1], rgb_colors[1][1]));
