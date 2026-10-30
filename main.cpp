@@ -10,6 +10,7 @@ bool input_preflight(string& color_input, int& format_base);
 
 string hex_to_dec(string color_input, string converted_output);
 
+int score_calculator(int rgb_colors[2][3]);
 
 int main() {
     int rgb_colors[2][3];
@@ -30,7 +31,7 @@ int main() {
 
         do {
             cout << "RGB colors must be three integers separated by whitespaces and between 0-255.\n"
-                    "HEX colors can optionally have '#' or '0x' prefixes.\n"
+                    "HEX colors must be in six digit format (optionally with '#' or '0x' prefixes).\n"
                     "Enter colors in RGB or HEX format for Color " << i+1 << " of 2:\n";
 
             string color_input;
@@ -88,9 +89,15 @@ int main() {
     cout << rgb_colors[1][0] << " " << rgb_colors[1][1] << " " << rgb_colors[1][2] << endl;
     cout << "Well, we got this far. That's gotta be a good sign, right?";
 
+    int color_score = score_calculator(rgb_colors);
 
-    // The algorithmic color evaluation happens here!
-    // But later.
+    if (color_score >= 180) {
+        cout << "These colors should be visible when placed together.\n";
+    } else if (color_score >= 120 && color_score < 180) {
+        cout << "These colors should be fairly visible when placed together, but you may want to tweak them.\n";
+    } else { // color_score < 120
+        cout << "These colors don't seem to be very distinct from each other. You should pick some better colors.\n";
+    }
 
     return 0;
 }
@@ -275,4 +282,15 @@ bool rgb_validator(const string color_input, int& red, int& green, int& blue) {
     return true;
 }
 
+int score_calculator(const int rgb_colors[2][3]) {
 
+    int r_score = (max(rgb_colors[0][0], rgb_colors[1][0]) - min(rgb_colors[0][0], rgb_colors[1][0]));
+    int g_score = (max(rgb_colors[0][1], rgb_colors[1][1]) - min(rgb_colors[0][1], rgb_colors[1][1]));
+    int b_score = (max(rgb_colors[0][2], rgb_colors[1][2]) - min(rgb_colors[0][2], rgb_colors[1][2]));
+    // subtracts the smallest value from the largest value for each channel (independently)
+    // might have problems, but allows to potentially identify weaknesses based on channel scores
+
+    int rgb_score = (r_score + g_score + b_score) / 3;
+
+    return rgb_score;
+}

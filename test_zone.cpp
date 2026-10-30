@@ -5,8 +5,8 @@
 using namespace std;
 
 int test_handler() {
-    cout << "Hello World!";
 
+    cout << "[Debug] Program completed all planned operations successfully and will now terminate.";
 
     return 0;
 }
